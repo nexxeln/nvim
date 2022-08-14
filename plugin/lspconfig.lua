@@ -105,6 +105,10 @@ nvim_lsp.tailwindcss.setup {}
 
 nvim_lsp.emmet_ls.setup {}
 
+nvim_lsp.astro.setup {
+  filetypes = { "astro" }
+}
+
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
   underline = true,

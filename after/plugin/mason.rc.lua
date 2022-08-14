@@ -8,5 +8,5 @@ mason.setup({
 })
 
 lspconfig.setup {
-    ensure_installed = { "sumneko_lua", "tailwindcss", "emmet_ls" },
+  ensure_installed = { "sumneko_lua", "tailwindcss", "emmet_ls", "astro_language_server" },
 }
