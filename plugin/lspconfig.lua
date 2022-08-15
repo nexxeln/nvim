@@ -103,7 +103,10 @@ nvim_lsp.sumneko_lua.setup {
 
 nvim_lsp.tailwindcss.setup {}
 
-nvim_lsp.emmet_ls.setup {}
+nvim_lsp.emmet_ls.setup {
+  capabilities = snip_caps,
+  filetypes = { "css", "html", "javascriptreact", "typescriptreact", "scss", "less", "sass" }
+}
 
 nvim_lsp.astro.setup {
   filetypes = { "astro" }
