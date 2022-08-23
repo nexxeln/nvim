@@ -31,3 +31,10 @@ keymap.set('n', '<C-w><left>', '<C-w><')
 keymap.set('n', '<C-w><right>', '<C-w>>')
 keymap.set('n', '<C-w><up>', '<C-w>+')
 keymap.set('n', '<C-w><down>', '<C-w>-')
+
+-- File tree
+keymap.set("n", ";e", ":NvimTreeToggle<CR>", { silent = true })
+
+-- To go to normal mode
+keymap.set("i", "jk", "<ESC>")
+keymap.set("i", "kj", "<ESC>")
