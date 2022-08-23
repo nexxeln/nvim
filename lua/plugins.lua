@@ -10,10 +10,7 @@ packer.startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- plugins go here
-  use {
-    'svrana/neosolarized.nvim',
-    requires = { 'tjdevries/colorbuddy.nvim' }
-  }
+  use { 'shaunsingh/oxocarbon.nvim', run = './install.sh' }
   use 'nvim-lualine/lualine.nvim' -- Statusline
   use 'nvim-lua/plenary.nvim' -- Common utilities
   use 'onsails/lspkind-nvim' -- vscode-like pictograms
