@@ -19,7 +19,8 @@ packer.startup({ function(use)
     },
     tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
-
+  use 'nvim-telescope/telescope.nvim'
+  use 'nvim-telescope/telescope-file-browser.nvim'
   use {
     'akinsho/bufferline.nvim',
     tag = "v2.*",
