@@ -6,11 +6,12 @@ end
 
 vim.cmd [[packadd packer.nvim]]
 
-packer.startup(function(use)
+packer.startup({ function(use)
   use 'wbthomason/packer.nvim'
 
   -- plugins go here
-  use { 'shaunsingh/oxocarbon.nvim', run = './install.sh' }
+  -- use { 'shaunsingh/oxocarbon.nvim', run = './install.sh' }
+  use 'B4mbus/oxocarbon-lua.nvim'
   use {
     'kyazdani42/nvim-tree.lua',
     requires = {
@@ -59,4 +60,9 @@ packer.startup(function(use)
   -- rust stuff
   use 'simrat39/rust-tools.nvim'
   use 'mfussenegger/nvim-dap'
-end)
+end,
+  config = {
+    display = {
+      open_fn = require('packer.util').float,
+    }
+  } })

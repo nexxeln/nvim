@@ -4,4 +4,4 @@ require("maps")
 require("plugins")
 require("options")
 
-vim.cmd("colorscheme oxocarbon")
+vim.cmd("colorscheme oxocarbon-lua")
