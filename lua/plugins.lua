@@ -13,6 +13,16 @@ packer.startup({ function(use)
   -- use { 'shaunsingh/oxocarbon.nvim', run = './install.sh' }
   use 'B4mbus/oxocarbon-lua.nvim'
   use {
+    'olivercederborg/poimandres.nvim',
+    config = function()
+      require('poimandres').setup {
+        -- leave this setup function empty for default config
+        -- or refer to the configuration section
+        -- for configuration options
+      }
+    end
+  }
+  use {
     'kyazdani42/nvim-tree.lua',
     requires = {
       'kyazdani42/nvim-web-devicons', -- optional, for file icons
