@@ -4,4 +4,4 @@ require("maps")
 require("plugins")
 require("options")
 
-vim.cmd("colorscheme poimandres")
+vim.cmd("colorscheme moonlight")

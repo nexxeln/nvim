@@ -22,6 +22,7 @@ packer.startup({ function(use)
       }
     end
   }
+  use 'astridlyre/moonlight.nvim'
   use {
     'kyazdani42/nvim-tree.lua',
     requires = {
