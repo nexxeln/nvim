@@ -11,18 +11,18 @@ packer.startup({ function(use)
 
   -- plugins go here
   -- use { 'shaunsingh/oxocarbon.nvim', run = './install.sh' }
-  use 'B4mbus/oxocarbon-lua.nvim'
+  use {
+    'B4mbus/oxocarbon-lua.nvim',
+    branch = 'lualine'
+  }
   use {
     'olivercederborg/poimandres.nvim',
     config = function()
-      require('poimandres').setup {
-        -- leave this setup function empty for default config
-        -- or refer to the configuration section
-        -- for configuration options
-      }
+      require('poimandres').setup {}
     end
   }
   use 'astridlyre/moonlight.nvim'
+  use { 'Everblush/everblush.nvim', as = 'everblush' }
   
   use {'glepnir/dashboard-nvim'} -- dashboard
 
