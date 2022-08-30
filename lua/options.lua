@@ -41,7 +41,11 @@ vim.o.expandtab = true
 
 vim.bo.expandtab = true
 
-vim.g.oxocarbon_lua_disable_italic = true
-vim.g.oxocarbon_lua_alternative_telescope = true
-vim.g.oxocarbon_lua_transparent = true
-vim.g.oxocarbon_lua_lualine_theme = 2
+vim.g.tokyodark_transparent_background = true
+vim.g.tokyodark_enable_italic = false
+-- vim.g.oxocarbon_lua_disable_italic = true
+-- vim.g.oxocarbon_lua_alternative_telescope = true
+-- vim.g.oxocarbon_lua_transparent = true
+-- vim.g.oxocarbon_lua_lualine_theme = 2
+
+

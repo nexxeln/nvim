@@ -11,27 +11,21 @@ packer.startup({ function(use)
 
   -- plugins go here
   -- use { 'shaunsingh/oxocarbon.nvim', run = './install.sh' }
-  use {
-    'B4mbus/oxocarbon-lua.nvim',
-    branch = 'lualine'
-  }
-  use {
-    'olivercederborg/poimandres.nvim',
-    config = function()
-      require('poimandres').setup {}
-    end
-  }
-  use 'astridlyre/moonlight.nvim'
-  use { 'Everblush/everblush.nvim', as = 'everblush' }
-  
+  -- use {
+  -- 'B4mbus/oxocarbon-lua.nvim',
+  --  branch = 'lualine'
+  -- } 
+  use 'tiagovla/tokyodark.nvim'
+
+
   use {'glepnir/dashboard-nvim'} -- dashboard
 
   use {
-    'kyazdani42/nvim-tree.lua',
-    requires = {
-      'kyazdani42/nvim-web-devicons', -- optional, for file icons
-    },
-    tag = 'nightly' -- optional, updated every week. (see issue #1193)
+     'kyazdani42/nvim-tree.lua',
+     requires = {
+       'kyazdani42/nvim-web-devicons', -- optional, for file icons
+     },
+     tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
   use 'nvim-telescope/telescope.nvim'
   use 'nvim-telescope/telescope-file-browser.nvim'

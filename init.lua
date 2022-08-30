@@ -4,4 +4,4 @@ require("maps")
 require("plugins")
 require("options")
 
-vim.cmd("colorscheme everblush")
+vim.cmd("colorscheme tokyodark")
