@@ -1,12 +1,54 @@
 local status, cmp = pcall(require, "cmp")
 if (not status) then return end
-local lspkind = require 'lspkind'
+
+ local kind_icons = {
+    Text = "",
+    Method = "",
+    Function = "",
+    Constructor = "",
+    Field = "",
+    Variable = "",
+    Class = "ﴯ",
+    Interface = "",
+    Module = "",
+    Property = "ﰠ",
+    Unit = "",
+
+    Value = "",
+    Enum = "",
+    Keyword = "",
+    Snippet = "",
+    Color = "",
+    File = "",
+    Reference = "",
+
+    Folder = "",
+    EnumMember = "",
+    Constant = "",
+    Struct = "",
+    Event = "",
+    Operator = "",
+    TypeParameter = "",
+  }
+
+  local source_menu = {
+    nvim_lsp = "[ LSP]",
+    luasnip = "[ LSnip]",
+    vsnip = "[ Snippet]",
+    nvim_lua = "[ NvimLua]",
+    latex_symbols = "[ Latex]",
+    dictionary = "[韛Dict]",
+    crates = "[ Cargo]",
+  }
 
 cmp.setup({
     snippet = {
         expand = function(args)
             require('luasnip').lsp_expand(args.body)
         end,
+    },
+    window = {
+        documentation = cmp.config.window.bordered(),
     },
     mapping = cmp.mapping.preset.insert({
         ['<C-d>'] = cmp.mapping.scroll_docs(-4),
@@ -42,8 +84,18 @@ cmp.setup({
         { name = 'buffer' },
     }),
     formatting = {
-        format = lspkind.cmp_format({ with_text = false, maxwidth = 50 })
-    }
+      fields = { "kind", "abbr", "menu" },
+      format = function(entry, item)
+        -- return special icon for cmdline completion
+        if entry.source.name == "cmdline" then
+          item.kind = ""
+          return item
+        end
+        item.kind = kind_icons[item.kind]
+        item.menu = (source_menu)[entry.source.name]
+        return item
+      end,
+    },
 })
 
 vim.cmd [[

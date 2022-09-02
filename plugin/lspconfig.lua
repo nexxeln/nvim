@@ -78,6 +78,8 @@ nvim_lsp.tsserver.setup {
 
 nvim_lsp.gopls.setup {}
 
+nvim_lsp.prismals.setup {}
+
 nvim_lsp.sourcekit.setup {
   on_attach = on_attach,
 }
