@@ -61,6 +61,13 @@ packer.startup({ function(use)
   use 'lewis6991/gitsigns.nvim'
   use 'dinhhuy258/git.nvim' -- For git blame & browse
 
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+      end
+  } -- comments
+
   -- rust stuff
   use 'simrat39/rust-tools.nvim'
   use 'mfussenegger/nvim-dap'
