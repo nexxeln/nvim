@@ -17,7 +17,6 @@ packer.startup({ function(use)
   -- } 
   use 'tiagovla/tokyodark.nvim'
 
-
   use {'glepnir/dashboard-nvim'} -- dashboard
 
   use {
