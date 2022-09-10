@@ -35,6 +35,9 @@ keymap.set('n', '<C-w><down>', '<C-w>-')
 -- File tree
 keymap.set("n", ";e", ":NvimTreeToggle<CR>", { silent = true })
 
+-- Format code
+keymap.set("n", "<M-f>", ":lua vim.lsp.buf.format()<CR>", { silent = true })
+
 -- To go to normal mode
 keymap.set("i", "jk", "<ESC>")
 keymap.set("i", "kj", "<ESC>")
