@@ -1,7 +1,4 @@
-require("base")
-require("highlights")
-require("maps")
-require("plugins")
 require("options")
-
-vim.cmd("colorscheme tokyodark")
+require("plugins")
+require("maps")
+require("colorscheme")

@@ -1,52 +1,47 @@
-vim.cmd('filetype plugin indent on')
-vim.o.shortmess = vim.o.shortmess .. 'c'
-vim.o.hidden = true
-vim.o.whichwrap = 'b,s,<,>,[,],h,l'
-vim.o.pumheight = 10
-vim.o.fileencoding = "utf-8"
-vim.o.cmdheight = 2
-vim.o.splitbelow = true
-vim.o.termguicolors = true
+local opt = vim.opt
 
-vim.o.splitright = true
-vim.opt.termguicolors = true
-vim.o.conceallevel = 0
-vim.o.showtabline = 2
-vim.o.showmode = false
-vim.o.backup = false
-vim.o.writebackup = false
-vim.o.updatetime = 300
-vim.o.timeoutlen = 1000
-vim.o.clipboard = "unnamedplus"
-vim.o.hlsearch = false
-vim.o.ignorecase = true
-vim.o.scrolloff = 3
-vim.o.sidescrolloff = 5
-vim.o.mouse = "a"
+-- 2 spaces for each indentation
+opt.shiftwidth = 2
+-- insert 2 spaces for tab while editing
+opt.tabstop = 2
+opt.softtabstop = 2
+opt.timeoutlen = 1000 -- time to wait for a mapped sequence to complete in milliseconds
+opt.completeopt = "menuone,noselect" -- for autocomplete which we'll be doing in the future
+opt.splitbelow = true -- force all horizontal splits to go below current window
+opt.splitright = true -- force all vertical splits to go to the right of current window
+opt.termguicolors = true -- enable 2 bit RGB colors, most modern terminal emulators support this
+opt.autoindent = true -- auto indent when using `o` or `O`
+opt.smartindent = true -- smart indenting
+opt.wrap = false -- wrap lines
+opt.cmdheight = 2 -- height of command bar
+opt.fileencoding = "utf-8" -- encoding of files
+opt.mouse = "a" -- enable mouse in all modes, for more options see :help 'mouse'
+opt.ignorecase = true -- ignore case while searching
+opt.smartcase = true -- ovveride ignore case if search pattern contains upper case characters
+opt.number = true -- numbered lines
+opt.relativenumber = true -- relative line numbers
+opt.numberwidth = 4 -- number column width
+opt.pumheight = 10 -- height of pop up menu
+opt.scrolloff = 8 -- minimium number of lines above and below the cursor
+opt.sidescrolloff = 8 -- minimum number of columns on the left and right of the cursor
+opt.whichwrap:append("b,s,<,>,[,],h,l") -- see :help 'whichwrap'
+opt.shortmess:append("c") -- see :help 'shortmess'
+opt.showmode = false -- won't show the mode in the command bar
+opt.clipboard = "unnamedplus" -- sync clipboard with system clipboard
+opt.swapfile = false -- creates a swap file
+opt.cursorline = true -- highlights the current line
+opt.conceallevel = 0 -- to show text normally
+opt.signcolumn = "yes" -- always show the sign column
+opt.undofile = true -- persistent undo
+opt.expandtab = true -- convert tabs to spaces (very controversial)
+opt.guicursor = "n-v-c-i:block" -- cursor style in different modes, see :help 'guicursor'
 
-vim.wo.wrap = false
-vim.wo.number = true
-vim.wo.cursorline = true
-vim.wo.signcolumn = "yes"
-
-vim.o.tabstop = 2
-vim.bo.tabstop = 2
-vim.o.softtabstop = 2
-vim.bo.softtabstop = 2
-vim.o.shiftwidth = 2
-vim.bo.shiftwidth = 2
-vim.o.autoindent = true
-vim.bo.autoindent = true
-vim.o.expandtab = true
-
-vim.bo.expandtab = true
-
-vim.g.tokyodark_transparent_background = true
-vim.g.tokyodark_enable_italic = false
-
--- vim.g.oxocarbon_lua_disable_italic = true
--- vim.g.oxocarbon_lua_alternative_telescope = true
--- vim.g.oxocarbon_lua_transparent = true
--- vim.g.oxocarbon_lua_lualine_theme = 2
-
-
+-- sync wsl2 vim clipboard with windows
+vim.cmd([[
+  if system('uname -r') =~ "microsoft"
+    augroup Yank
+    autocmd!
+    autocmd TextYankPost * :call system('/mnt/c/windows/system32/clip.exe ',@")
+    augroup END
+  endif
+]])

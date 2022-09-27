@@ -1,153 +1,115 @@
---vim.lsp.set_log_level("debug")
+local present, nvim_lsp = pcall(require, "lspconfig")
 
-local status, nvim_lsp = pcall(require, "lspconfig")
-if (not status) then return end
+if not present then
+	return
+end
 
-local protocol = require('vim.lsp.protocol')
+local protocol = require("vim.lsp.protocol")
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+	local function buf_set_keymap(...)
+		vim.api.nvim_buf_set_keymap(bufnr, ...)
+	end
 
-  --Enable completion triggered by <c-x><c-o>
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-  -- Mappings.
-  local opts = { noremap = true, silent = true }
-
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+	buf_set_keymap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
+	buf_set_keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
+	buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", { noremap = true, silent = true })
+	-- buf_set_keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
+	buf_set_keymap("n", "<leader>ca", "<Cmd>lua vim.lsp.buf.code_action()<CR>", { noremap = true, silent = true })
+	-- buf_set_keymap("n", "gr", "<Cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true, silent = true })
+	buf_set_keymap("n", "<C-j>", "<Cmd>lua vim.diagnostic.goto_next()<CR>", { noremap = true, silent = true })
+	buf_set_keymap("i", "<C-k>", "<Cmd>lua vim.lsp.buf.signature_help()<CR>", { noremap = true, silent = true })
 end
 
 protocol.CompletionItemKind = {
-  '', -- Text
-  '', -- Method
-  '', -- Function
-  '', -- Constructor
-  '', -- Field
-  '', -- Variable
-  '', -- Class
-  'ﰮ', -- Interface
-  '', -- Module
-  '', -- Property
-  '', -- Unit
-  '', -- Value
-  '', -- Enum
-  '', -- Keyword
-  '﬌', -- Snippet
-  '', -- Color
-  '', -- File
-  '', -- Reference
-  '', -- Folder
-  '', -- EnumMember
-  '', -- Constant
-  '', -- Struct
-  '', -- Event
-  'ﬦ', -- Operator
-  '', -- TypeParameter
+	"", -- Text
+	"", -- Method
+	"", -- Function
+	"", -- Constructor
+	"", -- Field
+	"", -- Variable
+	"", -- Class
+	"ﰮ", -- Interface
+	"", -- Module
+	"", -- Property
+	"", -- Unit
+	"", -- Value
+	"", -- Enum
+	"", -- Keyword
+	"﬌", -- Snippet
+	"", -- Color
+	"", -- File
+	"", -- Reference
+	"", -- Folder
+	"", -- EnumMember
+	"", -- Constant
+	"", -- Struct
+	"", -- Event
+	"ﬦ", -- Operator
+	"", -- TypeParameter
 }
 
--- Set up completion using nvim_cmp with LSP source
-local capabilities = require('cmp_nvim_lsp').update_capabilities(
-  vim.lsp.protocol.make_client_capabilities()
-)
+local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-nvim_lsp.flow.setup {
-  on_attach = on_attach,
-  capabilities = capabilities
-}
-
-nvim_lsp.denols.setup {
-  on_attach = on_attach,
-  root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc"),
-  single_file_support = false
-}
-
-nvim_lsp.tsserver.setup {
-  on_attach = on_attach,
-  root_dir = nvim_lsp.util.root_pattern("package.json"),
-  filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
-  cmd = { "typescript-language-server", "--stdio" },
-  capabilities = capabilities
-}
-
-nvim_lsp.gopls.setup {}
-
-nvim_lsp.prismals.setup {}
-
-nvim_lsp.sourcekit.setup {
-  on_attach = on_attach,
-}
-
-nvim_lsp.sumneko_lua.setup {
-  on_attach = on_attach,
-  settings = {
-    Lua = {
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = { 'vim' },
-      },
-
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file("", true),
-        checkThirdParty = false
-      },
-    },
-  },
-}
-
-nvim_lsp.tailwindcss.setup {}
-
-nvim_lsp.emmet_ls.setup {
-  capabilities = snip_caps,
-  filetypes = { "css", "html", "javascriptreact", "typescriptreact", "scss", "less", "sass" }
-}
-
-nvim_lsp.astro.setup {
-  filetypes = { "astro" }
-}
-
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
-  underline = true,
-  update_in_insert = false,
-  virtual_text = { spacing = 4, prefix = "●" },
-  severity_sort = true,
-}
-)
-
-local rt = require("rust-tools")
-
-rt.setup({
-  server = {
-    on_attach = function(_, bufnr)
-      -- Hover actions
-      vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
-      -- Code action groups
-      vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
-    end,
-  },
+nvim_lsp.tsserver.setup({
+	on_attach = on_attach,
+	cmd = { "typescript-language-server", "--stdio" },
+	capabilities = capabilities,
 })
 
--- Diagnostic symbols in the sign column (gutter)
+nvim_lsp.sumneko_lua.setup({
+	on_attach = on_attach,
+	settings = {
+		Lua = {
+			diagnostics = {
+				-- recognize the `vim` global
+				globals = { "vim" },
+			},
+
+			workspace = {
+				-- neovim runtime files
+				library = vim.api.nvim_get_runtime_file("", true),
+				checkThirdParty = false,
+			},
+		},
+	},
+})
+
+nvim_lsp.jsonls.setup({
+	capabilities = capabilities,
+})
+
+nvim_lsp.tailwindcss.setup({})
+
+nvim_lsp.html.setup({
+	capabilities = capabilities,
+})
+
+nvim_lsp.cssls.setup({
+	capabilities = capabilities,
+})
+
+nvim_lsp.emmet_ls.setup({})
+
+nvim_lsp.gopls.setup({})
+
+nvim_lsp.marksman.setup({})
+
+nvim_lsp.rust_analyzer.setup({})
+
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+	local hl = "DiagnosticSign" .. type
+	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
 vim.diagnostic.config({
-  virtual_text = {
-    prefix = '●'
-  },
-  update_in_insert = true,
-  float = {
-    source = "always", -- Or "if_many"
-  },
+	virtual_text = {
+		prefix = "●",
+	},
+	update_in_insert = true,
+	float = {
+		source = "always",
+	},
 })

@@ -1,10 +1,12 @@
-local cmp_status, cmp = pcall(require, "cmp")
-if not cmp_status then
+local cmp_present, cmp = pcall(require, "cmp")
+
+if not cmp_present then
 	return
 end
 
-local snip_status, luasnip = pcall(require, "luasnip")
-if not snip_status then
+local luasnip_present, luasnip = pcall(require, "luasnip")
+
+if not luasnip_present then
 	return
 end
 
@@ -46,10 +48,9 @@ local kind_icons = {
 cmp.setup({
 	snippet = {
 		expand = function(args)
-			luasnip.lsp_expand(args.body) -- For `luasnip` users.
+			luasnip.lsp_expand(args.body)
 		end,
 	},
-
 	mapping = cmp.mapping.preset.insert({
 		["<C-k>"] = cmp.mapping.select_prev_item(),
 		["<C-j>"] = cmp.mapping.select_next_item(),
@@ -96,6 +97,7 @@ cmp.setup({
 		fields = { "kind", "abbr", "menu" },
 		format = function(entry, vim_item)
 			vim_item.kind = kind_icons[vim_item.kind]
+
 			vim_item.menu = ({
 				nvim_lsp = "",
 				nvim_lua = "",
@@ -109,11 +111,11 @@ cmp.setup({
 	},
 	sources = {
 		{ name = "nvim_lsp" },
-		{ name = "nvim_lua" },
 		{ name = "luasnip" },
-		{ name = "buffer" },
+		{ name = "nvim_lua" },
 		{ name = "path" },
-		-- { name = "copilot" },
+		{ name = "buffer" },
+		{ name = "treesitter" },
 	},
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,

@@ -1,43 +1,16 @@
-local keymap = vim.keymap
+local map = vim.keymap.set
 
-keymap.set('n', 'x', '"_x')
+-- setting leader to space
+vim.g.mapleader = " "
 
--- Increment/decrement
-keymap.set('n', '+', '<C-a>')
-keymap.set('n', '-', '<C-x>')
+-- Modes
+--   normal_mode = "n",
+--   insert_mode = "i",
+--   visual_mode = "v",
+--   visual_block_mode = "x",
+--   term_mode = "t",
+--   command_mode = "c",
 
--- Select all
-keymap.set('n', '<C-a>', 'gg<S-v>G')
-
--- Save with root permission (not working for now)
---vim.api.nvim_create_user_command('W', 'w !sudo tee > /dev/null %', {})
-
--- New tab
-keymap.set('n', 'te', ':tabedit')
-
--- Split window
-keymap.set('n', 'ss', ':split<Return><C-w>w')
-keymap.set('n', 'sv', ':vsplit<Return><C-w>w')
-
--- Move window
-keymap.set('n', '<Space>', '<C-w>w')
-keymap.set('', 'sh', '<C-w>h')
-keymap.set('', 'sk', '<C-w>k')
-keymap.set('', 'sj', '<C-w>j')
-keymap.set('', 'sl', '<C-w>l')
-
--- Resize window
-keymap.set('n', '<C-w><left>', '<C-w><')
-keymap.set('n', '<C-w><right>', '<C-w>>')
-keymap.set('n', '<C-w><up>', '<C-w>+')
-keymap.set('n', '<C-w><down>', '<C-w>-')
-
--- File tree
-keymap.set("n", ";e", ":NvimTreeToggle<CR>", { silent = true })
-
--- Format code
-keymap.set("n", "<M-f>", ":lua vim.lsp.buf.format()<CR>", { silent = true })
-
--- To go to normal mode
-keymap.set("i", "jk", "<ESC>")
-keymap.set("i", "kj", "<ESC>")
+-- move line up/down
+map("n", ";j", "ddp", { silent = true })
+map("n", ";k", "ddkP", { silent = true })
