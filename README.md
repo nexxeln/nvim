@@ -26,6 +26,7 @@ nvim +PackerSync
 ## Screenshots
 <details>
   <summary>More screenshots :)</summary>
+  <br />
   <samp>
     <img alt="image" src="https://user-images.githubusercontent.com/95541290/192472062-0b6b2caa-317a-4563-b08c-6a49dedaf799.png">
     <p>completion</p>
