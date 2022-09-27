@@ -28,13 +28,15 @@ nvim +PackerSync
   <summary>More screenshots :)</summary>
   <samp>
     <img alt="image" src="https://user-images.githubusercontent.com/95541290/192472062-0b6b2caa-317a-4563-b08c-6a49dedaf799.png">
-    <p>Completion</p>
+    <p>completion</p>
     <br />
     <img alt="image" src="https://user-images.githubusercontent.com/95541290/192471443-8e0fa19b-0b89-4628-9154-39224d51ba50.png" />
-    <p>Code Actions</p>
+    <p>code actions</p>
     <br />
     <img alt="image" src="https://us-east-1.tixte.net/uploads/this-vegetable.is-from.space/wwqphtr5pt.gif" />
-    <p>LSP Actions</p>
+    <p>lsp actions</p>
     <br />
+    <img alt="img" src="https://us-east-1.tixte.net/uploads/this-vegetable.is-from.space/O8t0NSaPe1.gif" />
+    <p>auto-formatting</p>
   </samp>
 </details>
