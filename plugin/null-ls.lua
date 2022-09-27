@@ -11,6 +11,7 @@ null_ls.setup({
 		formatting.prettierd.with({
 			extra_filetypes = { "astro" },
 		}),
+		formatting.prismaFmt,
 		formatting.rustfmt,
 		formatting.gofmt,
 		diagnostics.eslint_d,
