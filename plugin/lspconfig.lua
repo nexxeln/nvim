@@ -98,6 +98,8 @@ nvim_lsp.marksman.setup({})
 
 nvim_lsp.rust_analyzer.setup({})
 
+nvim_lsp.astro.setup({})
+
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type

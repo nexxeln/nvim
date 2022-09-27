@@ -26,6 +26,7 @@ ts.setup({
 		enable_autocmd = false,
 	},
 	ensure_installed = {
+		"astro",
 		"bash",
 		"css",
 		"elixir",

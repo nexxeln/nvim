@@ -8,7 +8,9 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
 	sources = {
 		formatting.stylua,
-		formatting.prettierd,
+		formatting.prettierd.with({
+			extra_filetypes = { "astro" },
+		}),
 		formatting.rustfmt,
 		formatting.gofmt,
 		diagnostics.eslint_d,
