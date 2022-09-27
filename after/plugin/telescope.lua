@@ -80,11 +80,11 @@ telescope.load_extension("file_browser")
 
 local map = vim.keymap.set
 
-map("n", "<Space>f", function()
+map("n", "<leader>f", function()
 	builtin.find_files({})
 end)
 
-map("n", "<Space>g", function()
+map("n", "<leader>g", function()
 	builtin.live_grep()
 end)
 
@@ -92,15 +92,15 @@ map("n", "\\\\", function()
 	builtin.buffers()
 end)
 
-map("n", "<Space>t", function()
+map("n", "<leader>t", function()
 	builtin.help_tags()
 end)
 
-map("n", "<Space>;", function()
+map("n", "<leader>;", function()
 	builtin.resume()
 end)
 
-map("n", "<Space>d", function()
+map("n", "<leader>d", function()
 	builtin.diagnostics()
 end)
 
