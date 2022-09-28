@@ -6,6 +6,8 @@ This is my Neovim config. It's very minimal and fast.
 
 ## Installation
 
+This config should work on Neovim 0.7+ but I have only tested it in the nightly version.
+
 Make sure to backup your current config. Then clone this repository to `~/.config/nvim`.
 
 ```sh
@@ -24,6 +26,7 @@ nvim +PackerSync
 - [Adam Elmore's config](https://github.com/adamelmore/dotfiles)
 
 ## Screenshots
+
 <details>
   <summary>More screenshots :)</summary>
   <br />
