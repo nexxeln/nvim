@@ -16,4 +16,14 @@ map("n", ";j", "ddp", { silent = true })
 map("n", ";k", "ddkP", { silent = true })
 
 -- set line wrap
-map("n", "<M-z>", ":set wrap linebreak<CR>", { silent = true })
+map("n", "<M-z>", function()
+	local wrap_status = vim.api.nvim_exec("set wrap ?", true)
+
+	if wrap_status == "nowrap" then
+		vim.api.nvim_command("set wrap linebreak")
+		print("Wrap enabled")
+	else
+		vim.api.nvim_command("set wrap nowrap")
+		print("Wrap disabled")
+	end
+end, { silent = true })
