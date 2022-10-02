@@ -102,6 +102,10 @@ return require("packer").startup({
 			requires = { "kyazdani42/nvim-web-devicons", opt = true },
 		})
 
+		-- snippets
+		use("L3MON4D3/LuaSnip")
+		use("rafamadriz/friendly-snippets")
+
 		-- lsp
 		use("neovim/nvim-lspconfig")
 
@@ -118,6 +122,9 @@ return require("packer").startup({
 			commit = "76d0573fc159839a9c4e62a0ac4f1046845cdd50",
 		})
 
+		-- diagnostics list
+		use("folke/trouble.nvim")
+
 		-- autocompletion
 		use("hrsh7th/nvim-cmp")
 		use("hrsh7th/cmp-buffer")
@@ -125,10 +132,6 @@ return require("packer").startup({
 		use("hrsh7th/cmp-nvim-lua")
 		use("hrsh7th/cmp-path")
 		use("saadparwaiz1/cmp_luasnip")
-
-		-- snippets
-		use("L3MON4D3/LuaSnip")
-		use("rafamadriz/friendly-snippets")
 
 		if packer_bootstrap then
 			require("packer").sync()
