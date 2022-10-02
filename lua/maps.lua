@@ -27,3 +27,6 @@ map("n", "<M-z>", function()
 		print("Wrap disabled")
 	end
 end, { silent = true })
+
+-- trouble.nvim
+map("n", "<leader>x", "<cmd>TroubleToggle<CR>", { silent = true })
