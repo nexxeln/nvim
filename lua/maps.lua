@@ -12,8 +12,8 @@ vim.g.mapleader = " "
 --   command_mode = "c",
 
 -- move line up/down
-map("n", ";j", "ddp", { silent = true })
-map("n", ";k", "ddkP", { silent = true })
+map("n", "<M-j>", "ddp", { silent = true })
+map("n", "<M-k>", "ddkP", { silent = true })
 
 -- set line wrap
 map("n", "<M-z>", function()
