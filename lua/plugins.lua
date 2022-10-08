@@ -116,6 +116,9 @@ return require("packer").startup({
 		-- lsp ui
 		use("glepnir/lspsaga.nvim")
 
+		-- lsp progress
+		use("j-hui/fidget.nvim")
+
 		-- formatting, code actions and diagnostics
 		use({
 			"jose-elias-alvarez/null-ls.nvim",
