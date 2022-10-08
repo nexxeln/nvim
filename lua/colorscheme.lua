@@ -8,7 +8,7 @@ kanagawa.setup({
 	commentStyle = { italic = false },
 	keywordStyle = { italic = false },
 	variablebuiltinStyle = { italic = false },
-	transparent = true,
+	transparent = false,
 })
 
 vim.cmd("colorscheme kanagawa")
