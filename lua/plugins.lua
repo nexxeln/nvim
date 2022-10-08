@@ -102,9 +102,6 @@ return require("packer").startup({
 			requires = { "kyazdani42/nvim-web-devicons", opt = true },
 		})
 
-		-- improves startup time
-		use("lewis6991/impatient.nvim")
-
 		-- snippets
 		use("L3MON4D3/LuaSnip")
 		use("rafamadriz/friendly-snippets")
