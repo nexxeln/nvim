@@ -28,5 +28,18 @@ map("n", "<M-z>", function()
 	end
 end, { silent = true })
 
+-- tabs
+map("n", "<leader>ta", "<cmd>$tabnew<CR>", { noremap = true })
+map("n", "<leader>tc", "<cmd>tabclose<CR>", { noremap = true })
+map("n", "<leader>to", "<cmd>tabonly<CR>", { noremap = true })
+map("n", "<leader>tn", "<cmd>tabnext<CR>", { noremap = true })
+map("n", "<leader>tp", "<cmd>tabprevious<CR>", { noremap = true })
+
+-- move current tab to previous position
+map("n", "<leader>tmp", "<cmd>-tabmove<CR>", { noremap = true })
+
+-- move current tab to next position
+map("n", "<leader>tmn", "<cmd>+tabmove<CR>", { noremap = true })
+
 -- trouble.nvim
 map("n", "<leader>x", "<cmd>TroubleToggle<CR>", { silent = true })
