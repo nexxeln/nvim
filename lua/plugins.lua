@@ -96,6 +96,12 @@ return require("packer").startup({
 		-- telescope file browser
 		use("nvim-telescope/telescope-file-browser.nvim")
 
+		-- quick motions
+		use({
+			"phaazon/hop.nvim",
+			branch = "v2",
+		})
+
 		-- status line
 		use({
 			"nvim-lualine/lualine.nvim",
