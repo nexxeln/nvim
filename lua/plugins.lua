@@ -83,6 +83,12 @@ return require("packer").startup({
 		})
 		use("JoosepAlviste/nvim-ts-context-commentstring")
 
+		-- multi cursors
+		use({
+			"mg979/vim-visual-multi",
+			branch = "master",
+		})
+
 		-- telescope
 		use({
 			"nvim-telescope/telescope.nvim",
