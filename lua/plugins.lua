@@ -39,6 +39,9 @@ return require("packer").startup({
 		})
 		use("nvim-treesitter/nvim-treesitter-textobjects")
 
+		-- icons
+		use("kyazdani42/nvim-web-devicons")
+
 		-- automatic bracket pairs
 		use({
 			"windwp/nvim-autopairs",
@@ -109,10 +112,7 @@ return require("packer").startup({
 		})
 
 		-- status line
-		use({
-			"nvim-lualine/lualine.nvim",
-			requires = { "kyazdani42/nvim-web-devicons", opt = true },
-		})
+		use("nvim-lualine/lualine.nvim")
 
 		-- snippets
 		use("L3MON4D3/LuaSnip")
