@@ -29,8 +29,9 @@ return require("packer").startup({
 	function(use)
 		use("wbthomason/packer.nvim")
 
-		-- color scheme
+		-- color schemes
 		use("rebelot/kanagawa.nvim")
+		use("aktersnurra/no-clown-fiesta.nvim")
 
 		-- treesitter
 		use({
