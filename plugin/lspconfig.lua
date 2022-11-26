@@ -100,6 +100,8 @@ nvim_lsp.rust_analyzer.setup({})
 
 nvim_lsp.astro.setup({})
 
+nvim_lsp.svelte.setup({})
+
 nvim_lsp.prismals.setup({})
 
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
