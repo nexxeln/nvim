@@ -41,6 +41,7 @@ ts.setup({
 		"prisma",
 		"python",
 		"rust",
+		"svelte",
 		"toml",
 		"tsx",
 		"typescript",
