@@ -5,6 +5,9 @@ if not present then
 end
 
 local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+local install_config = require("nvim-treesitter.install")
+
+install_config.compilers = { "gcc", "clang" }
 
 ts.setup({
 	auto_install = true,
