@@ -41,6 +41,7 @@ ts.setup({
 		"lua",
 		"markdown",
 		"markdown_inline",
+		"ocaml",
 		"prisma",
 		"python",
 		"rust",

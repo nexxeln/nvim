@@ -108,6 +108,21 @@ nvim_lsp.elixirls.setup({
 	cmd = { "/home/nxl/Downloads/elixir-ls/language_server.sh" },
 })
 
+nvim_lsp.ocamlls.setup({
+	cmd = { "ocamllsp" },
+	filetypes = { "ocaml", "ocaml.menhir", "ocaml.interface", "ocaml.ocamllex", "reason", "dune" },
+	root_dir = nvim_lsp.util.root_pattern(
+		"*.opam",
+		"esy.json",
+		"package.json",
+		".git",
+		"dune-project",
+		"dune-workspace"
+	),
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
