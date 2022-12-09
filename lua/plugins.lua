@@ -148,6 +148,7 @@ return require("packer").startup({
 		use("hrsh7th/cmp-nvim-lua")
 		use("hrsh7th/cmp-path")
 		use("saadparwaiz1/cmp_luasnip")
+		use("github/copilot.vim")
 
 		if packer_bootstrap then
 			require("packer").sync()
