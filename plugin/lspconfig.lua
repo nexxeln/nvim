@@ -96,7 +96,9 @@ nvim_lsp.gopls.setup({})
 
 nvim_lsp.marksman.setup({})
 
-nvim_lsp.rust_analyzer.setup({})
+nvim_lsp.rust_analyzer.setup({
+	on_attach = on_attach,
+})
 
 nvim_lsp.astro.setup({})
 
