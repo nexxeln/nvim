@@ -110,6 +110,10 @@ nvim_lsp.elixirls.setup({
 	cmd = { "/home/nxl/Downloads/elixir-ls/language_server.sh" },
 })
 
+nvim_lsp.pyright.setup({
+	on_attach = on_attach,
+})
+
 nvim_lsp.ocamlls.setup({
 	cmd = { "ocamllsp" },
 	filetypes = { "ocaml", "ocaml.menhir", "ocaml.interface", "ocaml.ocamllex", "reason", "dune" },
