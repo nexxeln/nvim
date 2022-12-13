@@ -1,7 +1,12 @@
 local map = vim.keymap.set
 local present, saga = pcall(require, "lspsaga")
+local catppuccin_present, catppuccin = pcall(require, "catppuccin.groups.integrations.lsp_saga")
 
 if not present then
+	return
+end
+
+if not catppuccin_present then
 	return
 end
 
@@ -10,6 +15,7 @@ saga.init_lsp_saga({
 	symbol_in_winbar = {
 		enable = false,
 	},
+	custom_kind = catppuccin.custom_kind(),
 })
 
 -- Lsp finder find the symbol definition implement reference

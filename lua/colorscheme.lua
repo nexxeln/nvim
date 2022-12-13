@@ -1,22 +1,27 @@
-local kanagawa_present, kanagawa = pcall(require, "kanagawa")
-
-if not kanagawa_present then
-	return
-end
-
-kanagawa.setup({
-	commentStyle = { italic = false },
-	keywordStyle = { italic = false },
-	variablebuiltinStyle = { italic = false },
-	transparent = true,
-})
-
-vim.cmd("colorscheme kanagawa")
-
--- local no_clown_present, no_clown_fiesta = pcall(require, "no-clown-fiesta")
+-- local kanagawa_present, kanagawa = pcall(require, "kanagawa")
 --
--- if not no_clown_present then
+-- if not kanagawa_present then
 -- 	return
 -- end
 --
--- no_clown_fiesta.setup({})
+-- kanagawa.setup({
+-- 	commentStyle = { italic = false },
+-- 	keywordStyle = { italic = false },
+-- 	variablebuiltinStyle = { italic = false },
+-- 	transparent = false,
+-- })
+
+local catppuccin_present, catppuccin = pcall(require, "catppuccin")
+
+if not catppuccin_present then
+	return
+end
+
+catppuccin.setup({
+	integrations = {
+		fidget = true,
+		hop = true,
+	},
+})
+
+vim.cmd.colorscheme("catppuccin-mocha")
