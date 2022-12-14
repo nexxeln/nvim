@@ -126,9 +126,6 @@ return require("packer").startup({
 		use("williamboman/mason.nvim")
 		use("williamboman/mason-lspconfig.nvim")
 
-		-- lsp ui
-		use("glepnir/lspsaga.nvim")
-
 		-- lsp progress
 		use("j-hui/fidget.nvim")
 
