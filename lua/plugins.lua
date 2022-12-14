@@ -31,7 +31,7 @@ return require("packer").startup({
 
 		-- color schemes
 		use("rebelot/kanagawa.nvim")
-		use({ "catppuccin/nvim", as = "catppuccin" })
+		use("kvrohit/mellow.nvim")
 
 		-- treesitter
 		use({
