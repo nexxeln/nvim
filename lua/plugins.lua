@@ -130,10 +130,7 @@ return require("packer").startup({
 		use("j-hui/fidget.nvim")
 
 		-- formatting, code actions and diagnostics
-		use({
-			"jose-elias-alvarez/null-ls.nvim",
-			commit = "76d0573fc159839a9c4e62a0ac4f1046845cdd50",
-		})
+		use("jose-elias-alvarez/null-ls.nvim")
 
 		-- diagnostics list
 		use("folke/trouble.nvim")

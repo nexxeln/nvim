@@ -18,6 +18,7 @@ null_ls.setup({
 		code_actions.eslint_d,
 		formatting.mix,
 		formatting.black,
+		formatting.ocamlformat,
 	},
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
