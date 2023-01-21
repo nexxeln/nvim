@@ -63,9 +63,6 @@ return require("packer").startup({
 		-- indent guides
 		use("lukas-reineke/indent-blankline.nvim")
 
-		-- smooth scrolling
-		use("karb94/neoscroll.nvim")
-
 		-- git decorations in files
 		use({
 			"lewis6991/gitsigns.nvim",
