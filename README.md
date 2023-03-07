@@ -1,3 +1,6 @@
+> **Warning** <br />
+> I no longer have time to maintain this configuration due to various exams and college applications. I might redo my config in June/July 2023 but don't take my word for it. For now I'll be using [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim).
+
 ![image](https://us-east-1.tixte.net/uploads/nexxel-has.no-friends.xyz/explorer_MdgbNuyeh2.png)
 
 ## Overview
